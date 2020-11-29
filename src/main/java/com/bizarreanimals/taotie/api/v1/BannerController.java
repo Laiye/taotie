@@ -2,12 +2,15 @@ package com.bizarreanimals.taotie.api.v1;
 
 import com.bizarreanimals.taotie.dto.PersonDTO;
 import com.bizarreanimals.taotie.exception.http.NotFoundException;
+import org.hibernate.validator.constraints.Range;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
+import javax.validation.constraints.Max;
 
 @RestController
 @RequestMapping("/v1/banner")
+@Validated
 public class BannerController {
 
     /**
@@ -27,7 +30,7 @@ public class BannerController {
      * @return
      */
     @GetMapping("/test/parameter/path/{id}")
-    public String testParameterPath(@PathVariable Integer id, @RequestParam String name) {
+    public String testParameterPath(@PathVariable @Range(min = 1, max = 10) Integer id, @RequestParam String name) {
         return "testParameter";
     }
 

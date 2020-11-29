@@ -6,8 +6,6 @@ import lombok.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@RequiredArgsConstructor
 public class PersonDTO {
     @NonNull
     private String name;
