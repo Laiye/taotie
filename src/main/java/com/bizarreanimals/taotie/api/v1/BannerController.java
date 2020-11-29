@@ -35,7 +35,10 @@ public class BannerController {
     }
 
     @PostMapping("/test/parameter/body")
-    public String testParameterBody(@RequestBody PersonDTO person) {
-        return "testParameterBody";
+    public PersonDTO testParameterBody(@RequestBody @Validated PersonDTO person) {
+        PersonDTO dto = new PersonDTO();
+        dto.setAge(18);
+        dto.setName("你猜呢");
+        return dto;
     }
 }
