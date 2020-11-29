@@ -2,23 +2,14 @@ package com.bizarreanimals.taotie.dto;
 
 // 数据传输对象
 
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@RequiredArgsConstructor
 public class PersonDTO {
+    @NonNull
     private String name;
     private Integer age;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 }
