@@ -1,5 +1,6 @@
 package com.bizarreanimals.taotie.api.v1;
 
+import com.bizarreanimals.taotie.dto.PersonDTO;
 import com.bizarreanimals.taotie.exception.http.NotFoundException;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,7 +32,7 @@ public class BannerController {
     }
 
     @PostMapping("/test/parameter/body")
-    public String testParameterBody(@RequestBody Map<String, Object> person) {
+    public String testParameterBody(@RequestBody PersonDTO person) {
         return "testParameterBody";
     }
 }
