@@ -2,16 +2,22 @@ package com.bizarreanimals.taotie.api.v1;
 
 import com.bizarreanimals.taotie.dto.PersonDTO;
 import com.bizarreanimals.taotie.exception.http.NotFoundException;
+import com.bizarreanimals.taotie.service.BannerService;
 import org.hibernate.validator.constraints.Range;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Max;
+import javax.validation.constraints.NotBlank;
 
 @RestController
 @RequestMapping("/v1/banner")
 @Validated
 public class BannerController {
+
+    @Autowired
+    private BannerService bannerService;
 
     /**
      * 测试自定义异常及统一消息处理
@@ -40,5 +46,10 @@ public class BannerController {
         dto.setAge(18);
         dto.setName("你猜呢");
         return dto;
+    }
+
+    @GetMapping("/name/{name}")
+    public void getByName(@PathVariable @NotBlank String name) {
+
     }
 }
