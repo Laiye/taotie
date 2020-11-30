@@ -10,6 +10,10 @@ import java.lang.annotation.*;
 @Constraint(validatedBy = PasswordEqualValidator.class)
 public @interface PasswordEqual {
 
+    int min() default 4;
+
+    int max() default 6;
+
     String message() default "密码不相等";
 
     Class<?>[] groups() default {};

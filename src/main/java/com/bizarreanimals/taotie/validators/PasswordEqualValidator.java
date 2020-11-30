@@ -7,6 +7,16 @@ import javax.validation.ConstraintValidatorContext;
 
 public class PasswordEqualValidator implements ConstraintValidator<PasswordEqual, PersonDTO> {
 
+    private int min;
+    private int max;
+
+    @Override
+    public void initialize(PasswordEqual constraintAnnotation) {
+        // 通过此方法获取注解参数
+        this.min = constraintAnnotation.min();
+        this.max = constraintAnnotation.max();
+    }
+
     @Override
     public boolean isValid(PersonDTO personDTO, ConstraintValidatorContext constraintValidatorContext) {
         // 示例代码，并不严谨。
