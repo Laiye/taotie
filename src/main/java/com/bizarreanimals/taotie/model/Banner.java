@@ -22,6 +22,7 @@ public class Banner {
     private String title;
 
     @OneToMany(mappedBy = "banner", fetch = FetchType.EAGER)
+    @org.hibernate.annotations.ForeignKey(name = "null")
 //    @JoinColumn(name = "bannerId")
     private List<BannerItem> items;
 
