@@ -2,6 +2,7 @@ package com.bizarreanimals.taotie.api.v1;
 
 import com.bizarreanimals.taotie.dto.PersonDTO;
 import com.bizarreanimals.taotie.exception.http.NotFoundException;
+import com.bizarreanimals.taotie.model.Banner;
 import com.bizarreanimals.taotie.service.BannerService;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,8 @@ public class BannerController {
     }
 
     @GetMapping("/name/{name}")
-    public void getByName(@PathVariable @NotBlank String name) {
-
+    public Banner getByName(@PathVariable @NotBlank String name) {
+        Banner banner = bannerService.getByName(name);
+        return banner;
     }
 }
