@@ -21,8 +21,8 @@ public class Banner {
 
     private String title;
 
-    @OneToMany
-    @JoinColumn(name = "bannerId")
+    @OneToMany(mappedBy = "banner", fetch = FetchType.EAGER)
+//    @JoinColumn(name = "bannerId")
     private List<BannerItem> items;
 
 }

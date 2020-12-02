@@ -19,4 +19,8 @@ public class BannerItem {
     private String name;
 
     private Long bannerId;
+
+    @ManyToOne
+    @JoinColumn(insertable = false, updatable = false, name = "bannerId")
+    private Banner banner;
 }
