@@ -1,31 +1,30 @@
 package com.bizarreanimals.taotie.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
-@Table(name = "banner")
+@Getter
+@Setter
 public class Banner {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    @Column(length = 32)
+    private int id;
     private String name;
-
-    @Transient
     private String description;
-
+    private Date createTime;
+    private Date updateTime;
+    private Date deleteTime;
+    private String title;
     private String img;
 
-    private String title;
-
-    @OneToMany(mappedBy = "banner", fetch = FetchType.EAGER)
-    @org.hibernate.annotations.ForeignKey(name = "null")
-//    @JoinColumn(name = "bannerId")
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bannerId")
     private List<BannerItem> items;
-
 }
-
-// 让模型类变成数据库中的一张表
