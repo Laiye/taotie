@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/spu")
@@ -28,5 +29,10 @@ public class SpuController {
             throw new NotFoundException(30003);
         }
         return spu;
+    }
+
+    @GetMapping("/latest")
+    public List<Spu> getLatestSpuList() {
+        return this.spuService.getLatestPagingSpu();
     }
 }
